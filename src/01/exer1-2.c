@@ -3,10 +3,11 @@
 //
 #include <stdio.h>
 #include <string.h>
-#define NUMBERS_LENGTH 2
+#define NUMBER_OF_VARIABLES 2
+#define BLANK printf("\n")
 #define MESSAGE "%c: %lf\n"
 
-int ask_number(double *target_ptr, char *variable_name);
+int ask_number(double *target_ptr, char variable_name);
 int calculate_average(int *numbers, int length);
 int print_double(double number, char name_of_variable);
 
@@ -15,9 +16,9 @@ int main() {
     double a, b;
     char variable_names[] = "ab";
 
-    ask_number(&a, &variable_names[0]);
-    ask_number(&b, &variable_names[1]);
-    printf("\n");
+    ask_number(&a, variable_names[0]);
+    ask_number(&b, variable_names[1]);
+    BLANK;
 
     if (a >= b) {
         print_double(a, variable_names[0]);
@@ -33,8 +34,8 @@ int main() {
 }
 
 
-int ask_number(double *target_ptr, char *variable_name) {
-    printf("Please input number '%c': ", variable_name[0]);
+int ask_number(double *target_ptr, char variable_name) {
+    printf("Please input number '%c': ", variable_name);
     scanf("%lf", target_ptr);
 
     return 0;

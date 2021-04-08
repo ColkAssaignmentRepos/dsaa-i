@@ -3,9 +3,9 @@
 //
 #include <stdio.h>
 #include <string.h>
-#define NUMBERS_LENGTH 3
+#define NUMBER_OF_VARIABLES 3
 
-int ask_natural_number(int *target_ptr, char *variable_name);
+int ask_natural_number(int *target_ptr, char variable_name);
 int how_many_factors(int n);
 
 
@@ -13,7 +13,7 @@ int main() {
     int n;
     int number_of_factors;
 
-    if (ask_natural_number(&n, "n") != 0) {
+    if (ask_natural_number(&n, "n"[0]) != 0) {
         printf("\x1b[41m");
         printf("Error! Expected only a natural number, but got negative integer.\n");
 
@@ -21,15 +21,14 @@ int main() {
     }
 
     number_of_factors = how_many_factors(n);
-
     printf("Calculated!\nThe result is: %d\n", number_of_factors);
 
     return 0;
 }
 
 
-int ask_natural_number(int *target_ptr, char *variable_name) {
-    printf("Please input number to calculate average %c: ", variable_name[0]);
+int ask_natural_number(int *target_ptr, char variable_name) {
+    printf("Please input number to calculate average %c: ", variable_name);
     scanf("%d", target_ptr);
 
     if (*target_ptr < 0) {

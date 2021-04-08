@@ -3,7 +3,7 @@
 //
 #include <stdio.h>
 #include <string.h>
-#define NUMBERS_LENGTH 3
+#define NUMBER_OF_VARIABLES 3
 #define BLANK printf("\n")
 
 int ask_number(int *target_ptr, char variable_name);
@@ -21,7 +21,7 @@ int main() {
     BLANK;
 
     int numbers[] = {a, b, c};
-    average = calculate_average(numbers, NUMBERS_LENGTH);
+    average = calculate_average(numbers, NUMBER_OF_VARIABLES);
 
     printf("Calculated!\nThe result is: %.2f\n", average);
 
