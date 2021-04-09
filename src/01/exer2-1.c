@@ -3,7 +3,7 @@
 //
 #include <stdio.h>
 #include <string.h>
-#define LENGTH_OF_SIDE 31
+#define LENGTH_OF_SIDE 9
 
 int print_header(int length_of_side);
 int print_one_line(int current_line, int length_of_side);
