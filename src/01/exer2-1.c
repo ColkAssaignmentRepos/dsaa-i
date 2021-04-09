@@ -3,47 +3,45 @@
 //
 #include <stdio.h>
 #include <string.h>
-#define NUMBERS_LENGTH 3
+#define LENGTH_OF_SIDE 31
 
-int ask_number(int *target_ptr, char *variable_name);
-int calculate_average(int *numbers, int length);
+int print_header(int length_of_side);
+int print_one_line(int current_line, int length_of_side);
 
 
 int main() {
-    int a, b, c;
-    double average;
-    char variable_names[] = "abc";
+    print_header(LENGTH_OF_SIDE);
 
-    ask_number(&a, &variable_names[0]);
-    ask_number(&b, &variable_names[1]);
-    ask_number(&c, &variable_names[2]);
-
-    int numbers[] = {a, b, c};
-    average = calculate_average(numbers, NUMBERS_LENGTH);
-
-    printf("Calculated!\nThe result is: %.2f\n", average);
-
-    return 0;
-}
-
-
-int ask_number(int *target_ptr, char *variable_name) {
-    printf("Please input number to calculate average %c: ", variable_name[0]);
-    scanf("%d", target_ptr);
-
-    return 0;
-}
-
-
-int calculate_average(int *numbers, int length) {
-    int sum = 0;
-    float average = 0;
-
-    for (int i = 0; i < length; i++) {
-        sum = sum + numbers[i];
+    for (int i = 1; i <= LENGTH_OF_SIDE; i++) {
+        print_one_line(i, LENGTH_OF_SIDE);
     }
 
-    average = (float)sum / (float)length;
+    return 0;
+}
 
-    return average;
+
+int print_header(int length_of_side) {
+    printf("|___|");
+
+    for (int i = 1; i <= length_of_side; i++) {
+        printf("%3d|", i);
+    }
+
+    printf("\n");
+    return 0;
+}
+
+
+int print_one_line(int current_line, int length_of_side) {
+    int product;
+    printf("|%3d|", current_line);
+
+    for (int i = 1; i <= length_of_side; i++) {
+        product = current_line * i;
+        printf("%3d|", product);
+    }
+
+    printf("\n");
+
+    return 0;
 }
