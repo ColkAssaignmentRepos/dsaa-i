@@ -27,6 +27,7 @@ int main() {
 
     input_array = (int *) malloc(sizeof(int) * user_input_length);
     blank();
+    printf("Input numbers:\n");
 
     for (int i = 0; i < user_input_length; i++) {
         fflush(stdin);
