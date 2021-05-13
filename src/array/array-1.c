@@ -9,7 +9,7 @@
 #define fatal(exit_code, ...) {print_error(__VA_ARGS__); exit(exit_code);}
 #define blank() {printf("\n");}
 
-float standard_deviation(int *array, int length);
+float average(int *array, int length);
 
 
 int main() {
@@ -48,7 +48,7 @@ int main() {
 }
 
 
-float standard_deviation(int *array, int length) {
+float average(int *array, int length) {
     int sum = 0;
     float result;
 
