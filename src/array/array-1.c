@@ -9,7 +9,7 @@
 #define fatal(exit_code, ...) {print_error(__VA_ARGS__); exit(exit_code);}
 #define blank() {printf("\n");}
 
-float average(int array[], int length);
+float standard_deviation(int *array, int length);
 
 
 int main() {
@@ -26,6 +26,10 @@ int main() {
     }
 
     input_array = (int *) malloc(sizeof(int) * user_input_length);
+    if (input_array == NULL) {
+        print_error("Error: Unexpected error has occurred. Failed to allocate array.");
+    }
+
     blank();
     printf("Input numbers:\n");
 
@@ -44,7 +48,7 @@ int main() {
 }
 
 
-float average(int array[], int length) {
+float standard_deviation(int *array, int length) {
     int sum = 0;
     float result;
 
