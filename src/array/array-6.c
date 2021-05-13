@@ -26,7 +26,6 @@ int main() {
         result += intercepts[i];
     }
 
-
     blank();
     print_green("Calculated!");
     print_green("Result: %lld", result);

@@ -26,16 +26,16 @@ int main() {
     int current_integer;
     int row_count = 0;
     while(( fscanf(score_file_ptr, "%d", &current_integer)) != EOF ){
-        row_count++;
-
-        if (row_count == 1) {
-            input_array = (int *) malloc(sizeof(int) * row_count);
+        if (row_count == 0) {
+            input_array = (int *) malloc(sizeof(int));
         }
         else {
-            input_array = (int *) realloc(input_array ,sizeof(int) * row_count);
+            input_array = (int *) realloc(input_array ,sizeof(int) * (row_count+1));
         }
 
-        input_array[row_count-1] = current_integer;
+        input_array[row_count] = current_integer;
+
+        row_count++;
     }
 
     max_number = max_in_array(input_array, row_count);
@@ -50,7 +50,7 @@ int main() {
 int max_in_array(int *array, int length) {
     int current_max = array[0];
 
-    for (int i = 1; i < length; i++) {
+    for (int i = 0; i < length; i++) {
         if (array[i] > current_max) {
             current_max = array[i];
         }

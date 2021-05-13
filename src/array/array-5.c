@@ -30,12 +30,17 @@ int main() {
 
     int current_integer;
     int row_count = 0;
-    while (( fscanf(score_file_ptr, "%d", &current_integer)) != EOF ) {
+    while(( fscanf(score_file_ptr, "%d", &current_integer)) != EOF ){
+        if (row_count == 0) {
+            input_array = (int *) malloc(sizeof(int));
+        }
+        else {
+            input_array = (int *) realloc(input_array ,sizeof(int) * (row_count+1));
+        }
+
+        input_array[row_count] = current_integer;
+
         row_count++;
-
-        input_array = (int *) realloc(input_array,sizeof(int) * row_count);
-
-        input_array[row_count-1] = current_integer;
     }
 
     pictograph(input_array, row_count);

@@ -10,8 +10,8 @@
 #define fatal(exit_code, ...) {print_error(__VA_ARGS__); exit(exit_code);}
 #define blank() {printf("\n");}
 
-float average(int *array, int length);
 float standard_deviation(int *array, int length);
+float average(int *array, int length);
 
 
 int main() {
@@ -50,19 +50,6 @@ int main() {
 }
 
 
-float average(int *array, int length) {
-    int sum = 0;
-    float result;
-
-    for (int i = 0; i < length; i++) {
-        sum += array[i];
-    }
-
-    result = (float)sum / (float)length;
-    return result;
-}
-
-
 float standard_deviation(int *array, int length) {
     int avg;
     float sum = 0;
@@ -75,5 +62,18 @@ float standard_deviation(int *array, int length) {
     }
 
     result = sqrt(sum / length);
+    return result;
+}
+
+
+float average(int *array, int length) {
+    int sum = 0;
+    float result;
+
+    for (int i = 0; i < length; i++) {
+        sum += array[i];
+    }
+
+    result = (float)sum / (float)length;
     return result;
 }
