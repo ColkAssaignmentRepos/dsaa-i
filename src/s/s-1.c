@@ -19,8 +19,7 @@ int main(void) {
                 t = a[j];
                 a[j] = a[j + 1];
                 a[j + 1] = t;
-            }
-            else {
+            } else {
                 break;
             }
 

@@ -26,13 +26,12 @@ int main(void) {
     for (int i = 0; i < NUMBER_OF_ITEMS; i++) {
 
         for (int j = i - 1; j >= 0; j--) {
-            if (array[j] > array[j+1]) {
-                tmp = array[j+1];
+            if (array[j] > array[j + 1]) {
+                tmp = array[j + 1];
 
-                array[j+1] = array[j];
+                array[j + 1] = array[j];
                 array[j] = tmp;
-            }
-            else {
+            } else {
                 break;
             }
 
@@ -41,7 +40,7 @@ int main(void) {
     }
 
     for (int i = 0; i < NUMBER_OF_ITEMS; i++) {
-        printf("%3d| %d ", i+1, array[i]);
+        printf("%3d| %d ", i + 1, array[i]);
         printf("\n");
     }
 
