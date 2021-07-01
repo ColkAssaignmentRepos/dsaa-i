@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define FILENAME "/Users/colk/Repositories/ColkAssaignmentRepos/dsaa-i/src/list/data.txt"
+#define FILENAME "data.txt"
 #define DEFAULT_BUFFER_LENGTH 50
 
 #define print_error(...) {fprintf(stderr, "\x1b[31m"); fprintf(stderr, __VA_ARGS__); fprintf(stderr, "\x1b[39m\n");}
