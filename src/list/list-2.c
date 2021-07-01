@@ -10,12 +10,12 @@ typedef struct _person {
     struct _person *next;
 } person;
 
-void search(person *head, char *query);
+person *find(person *head, char *query);
 
 
 int main(void) {
     int s, i;
-    person *head, *p, *tmp;
+    person *head, *p, *tmp, *result;
     char input_buf[DEFAULT_BUFFER_LENGTH];
 
     printf("How many people?\n");
@@ -52,7 +52,15 @@ int main(void) {
 
     printf("Who do you want to look up?\n");
     scanf("%s", input_buf);
-    search(head, input_buf);
+    printf("\n");
+
+    result = find(head, input_buf);
+    if (result == NULL) {
+        printf("No match found in the linear list. (query: \"%s\")\n", input_buf);
+    } else {
+        printf("The name: \"%s\" found in the linear list.\n", input_buf);
+        printf("name : %s\t phone number : %s\n", result->name, result->phone);
+    }
 
     /* 後から入力した順に解放 */
     p = head;
@@ -66,19 +74,17 @@ int main(void) {
 }
 
 
-void search(person *head, char *query) {
+person *find(person *head, char *query) {
     person *p;
 
     p = head;
     while (p != NULL) {
         if (strcmp(p->name, query) == 0) {
-            printf("The name: \"%s\" found in the linear list.\n", query);
-            return;
+            return p;
         }
 
         p = p->next;
     }
 
-    printf("No match found in the linear list. (query: \"%s\")\n", query);
-    return;
+    return NULL;
 }
