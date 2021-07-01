@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define DEFAULT_BUFFER_LENGTH 4096
+
 typedef struct _person {
     char name[50];
     char phone[50];
@@ -14,6 +16,7 @@ void search(person *head, char *query);
 int main(void) {
     int s, i;
     person *head, *p, *tmp;
+    char input_buf[DEFAULT_BUFFER_LENGTH];
 
     printf("How many people?\n");
     scanf("%d", &s);
@@ -47,7 +50,9 @@ int main(void) {
     }
     printf("\n");
 
-    search(head, "a");
+    printf("Who do you want to look up?\n");
+    scanf("%s", input_buf);
+    search(head, input_buf);
 
     /* 後から入力した順に解放 */
     p = head;
