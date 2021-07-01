@@ -30,28 +30,27 @@ int main(void) {
         printf("Input phone number : ");
         scanf("%s", p->phone);
 
-        // TODO: FILL OUT HERE
-        // p->next = __(ア)__;
-        // head = __(イ)__;
-
-        printf("\n");
-
-        /* 後から入力した順に出力 */
-        p = head;
-        while (p != NULL) {
-            printf("name : %s\t phone number : %s\n", p->name, p->phone);
-            p = p->next;
-        }
-        printf("\n");
-
-        /* 後から入力した順に解放 */
-        p = head;
-        while (p != NULL) {
-            tmp = p->next;
-            free(p);
-            p = tmp;
-        }
-
-        return 0;
+        p->next = head;
+        head = p;
     }
+
+    printf("\n");
+
+    /* 後から入力した順に出力 */
+    p = head;
+    while (p != NULL) {
+        printf("name : %s\t phone number : %s\n", p->name, p->phone);
+        p = p->next;
+    }
+    printf("\n");
+
+    /* 後から入力した順に解放 */
+    p = head;
+    while (p != NULL) {
+        tmp = p->next;
+        free(p);
+        p = tmp;
+    }
+
+    return 0;
 }
